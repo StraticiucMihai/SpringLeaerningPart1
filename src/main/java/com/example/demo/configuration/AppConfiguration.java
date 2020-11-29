@@ -3,8 +3,11 @@ package com.example.demo.configuration;
 import com.example.demo.service.CarVehicleService;
 import com.example.demo.service.PlaneService;
 import com.example.demo.service.VehicleService;
+import com.example.demo.service.VehicleServiceTest;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class AppConfiguration {
@@ -12,16 +15,18 @@ public class AppConfiguration {
 
     @Bean(name = "car")
 //    @Qualifier("car")
-//    @ConditionalOnProperty(value = "vehicle.service.mode", havingValue = "car")
     public VehicleService carVehicleServiceConfigure(){
         return new CarVehicleService();
     }
     @Bean(name = "plane")
-//   @Primary
+//    @Primary
 //    @Qualifier("plane")
-//    @ConditionalOnProperty(value = "vehicle.service.mode", havingValue = "plane")
     public VehicleService planeVehicleServiceConfiguration(){
 
         return new PlaneService();
+    }
+    @Bean
+    public VehicleServiceTest vehicleServiceTest(){
+        return  new VehicleServiceTest();
     }
 }
