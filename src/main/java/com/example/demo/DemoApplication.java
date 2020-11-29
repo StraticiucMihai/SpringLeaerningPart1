@@ -1,10 +1,8 @@
 package com.example.demo;
 
 import com.example.demo.configuration.AppConfiguration;
-import com.example.demo.service.CarVehicleService;
-import com.example.demo.service.PlaneService;
-import com.example.demo.service.VehicleService;
-import com.example.demo.service.VehicleServiceTest;
+import com.example.demo.service.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -24,6 +22,9 @@ public class DemoApplication {
         vehicleService.stopEngine();
         VehicleServiceTest vehicleServiceTest = context.getBean(VehicleServiceTest.class);
         vehicleServiceTest.testVehicle();
+
+        VehicleServiceTest2 vehicleServiceTest2 = context.getBean(VehicleServiceTest2.class);
+        System.out.println(vehicleServiceTest2.toString());
     }
 
 }

@@ -1,9 +1,6 @@
 package com.example.demo.configuration;
 
-import com.example.demo.service.CarVehicleService;
-import com.example.demo.service.PlaneService;
-import com.example.demo.service.VehicleService;
-import com.example.demo.service.VehicleServiceTest;
+import com.example.demo.service.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -26,5 +23,17 @@ public class AppConfiguration {
     @Bean
     public VehicleServiceTest vehicleServiceTest(){
         return  new VehicleServiceTest();
+    }
+    @Bean
+    public VehicleServiceTest2 vehicleServiceTest2(Engine engine , Transmision transmision){
+        return  new VehicleServiceTest2(engine, transmision);
+    }
+    @Bean
+    public Engine engine(){
+        return new Engine("v8",8);
+    }
+    @Bean
+    public Transmision transmision(){
+        return new Transmision("Standart");
     }
 }
